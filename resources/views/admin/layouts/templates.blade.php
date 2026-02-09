@@ -65,6 +65,7 @@
             }
         });
     </script>
+    <script src="/vendor/bootstrap/js/boostrap.bundle.js"></script>
 
 </body>
 

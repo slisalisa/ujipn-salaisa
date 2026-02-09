@@ -40,12 +40,12 @@
                 <label for="judul" class="col-3">Judul</label>
                 <div class="col-9">
                     <input class="form-control  @error('judul') is-invalid @enderror" type="text" name="judul" id=""> 
-                    @error('judul')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+                        @error('judul')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
             </div>
             <div class="form-group row mb-3 d-flex align-items-center">
                 <label for="isi" class="col-3">Isi Pesan</label>
