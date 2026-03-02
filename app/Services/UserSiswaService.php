@@ -21,7 +21,7 @@ class UserSiswaService
             ]);
 
             $siswa = Siswa::create([
-                'user_id' => '$user->id',
+                'user_id' => $user->id,
                 'nis' => $data['nis'],
                 'kelas' => $data['kelas'],
                 'jurusan' => $data['jurusan'],

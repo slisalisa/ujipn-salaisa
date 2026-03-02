@@ -20,25 +20,25 @@ class DatabaseSeeder extends Seeder
     {
         $dataUser = [
             [
-                'nama' => 'Slamet Kuatno, S.Pd',
-                'username' => 'slametkuatno',
-                'email' => 'slametkuatno@gmail.com',
+                'nama' => 'Salaisa manis fathikha, S.Pd',
+                'username' => 'salisamanis',
+                'email' => 'salisalisa6@gmail.com',
                 'jabatan' => 'Waka Sarpras',
                 'password' => bcrypt('admin'),
                 'role' => 'admin'
             ],
             [
-                'nama' => 'Salaisa Manis Fathikha',
+                'nama' => 'Annisa Nur Fitri',
                 'username' => 'user-12345678',
-                'email' => 'slisalisa@gmail.com',
+                'email' => 'annisaica@gmail.com',
                 'jabatan' => '',
                 'password' => bcrypt('123456'),
                 'role' => 'siswa'
             ],
             [
-                'nama' => 'Cecep sulaeman',
+                'nama' => 'Cecep Spidermen',
                 'username' => 'user-12345679',
-                'email' => 'sulaeman@gmail.com',
+                'email' => 'spidermen@gmail.com',
                 'jabatan' => '',
                 'password' => bcrypt('123456'),
                 'role' => 'siswa'
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         $dataSiswa = [
             [
                 'user_id' => 2,
-                'nis' => '12341678',
+                'nis' => '12345678',
                 'kelas' => '12 RPL',
                 'jurusan' => 'PPLG'
             ],
@@ -103,20 +103,34 @@ class DatabaseSeeder extends Seeder
                 'kategori_id' => 1,
                 'judul' => 'Lampu Mati',
                 'isi' => 'Mohon di cek, lampu di ruang kelas 12 RPL mati',
-                'status' => 'diproses',
+                'status' => 'menunggu',
             ],
             [
                 'siswa_id' => 1,
                 'kategori_id' => 1,
                 'judul' => 'Bangku Kurang',
                 'isi' => 'Mohon di cek, jumlah bangku tidak sesuai dengan jumlah total siswa di ruang kelas 12 RPL',
-                'status' => 'diproses',
+                'status' => 'menunggu',
             ],
             [
                 'siswa_id' => 2,
                 'kategori_id' => 2,
                 'judul' => 'Toilet Mampet',
                 'isi' => 'Mohon di cek, toilet perempuan di kamar 2, saluran pembuangannya mampet',
+                'status' => 'menunggu',
+            ],
+            [
+                'siswa_id' => 2,
+                'kategori_id' => 1,
+                'judul' => 'Lampu Mati',
+                'isi' => 'Mohon di cek, lampu mati dongs',
+                'status' => 'menunggu',
+            ],
+            [
+                'siswa_id' => 2,
+                'kategori_id' => 1,
+                'judul' => 'Papan Tulis Rusak',
+                'isi' => 'Mohon di cek, papan tulis sudah pada bolong',
                 'status' => 'menunggu',
             ],
         ];

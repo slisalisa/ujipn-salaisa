@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AspirasiController;
+use App\Http\Controllers\Admin\DashboardController as DashboardAdmin;
+use App\Http\Controllers\Admin\KategoriController;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\Admin\SiswaController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Siswa\DashboardController as DashboardSiswa;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\DashboardController as DashboardAdmin;
-use App\Http\Controllers\Siswa\DashboardController as DashboardSiswa;
-use App\Http\Controllers\Admin\SiswaController;
 
 Route::get('/', function () {
     // cek apakah dia login atau tidak
@@ -25,16 +28,34 @@ Route::get('/login', [AuthController::class, 'index'])->middleware('guest')->nam
 Route::post('/login', [AuthController::class, 'authenticate'])->middleware('guest')->name('login.process');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Routing untuk admin
+// Kelolah Data Siswa
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardAdmin::class, 'index'])->name('dashboard');
     Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
-    Route::post('/tambah-siswa', [SiswaController::class, 'store'])->name('tambah-siswa');
-    Route::get('/form-siswa', [SiswaController::class, 'create'])->name('from-siswa');
-    Route::get('/siswa/delete/{siswa}', [SiswaController::class, 'delete'])->name('hapus-siswa'); 
-    Route::get('/siswa/edit/{siswa}', [SiswaController::class, 'edit'])->name('form-edit-siswa'); 
-    Route::put('/siswa', [SiswaController::class, 'update'])->name('edit-siswa');
-    //route model binding
+    Route::get('/form-siswa', [SiswaController::class, 'create'])->name('form-siswa');
+    Route::post('/siswa', [SiswaController::class, 'store'])->name('tambah-siswa');
+    Route::get('/siswa/delete/{siswa}', [SiswaController::class, 'delete'])->name('hapus-siswa'); // route model binding
+    Route::get('/siswa/edit/{siswa}', [SiswaController::class, 'edit'])->name('form-edit-siswa'); // route model binding
+    Route::put('/siswa', [SiswaController::class, 'update'])->name('edit-siswa'); // route model binding
+
+// Kelola Data Kategori
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+    Route::get('/form-kategori', [KategoriController::class, 'create'])->name('form-kategori');
+    Route::post('/kategori', [KategoriController::class, 'store'])->name('tambah-kategori');
+    Route::get('/kategori/edit/{kategori}', [KategoriController::class, 'edit'])->name('form-edit-kategori');
+    Route::put('/kategori', [KategoriController::class, 'update'])->name('edit-kategori');
+    Route::get('/kategori/delete/{kategori}', [KategoriController::class, 'delete'])->name('hapus-kategori');
+
+   
+    // Kelola Data Aspirasi
+       Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi');
+       Route::post('/get-aspirasi', [AspirasiController::class, 'getTanggapanByAspirasi'])->name('get-aspirasi');
+       Route::post('/tanggapan', [AspirasiController::class, 'addTanggapan'])->name('tanggapan');
+       Route::get('/aspirasi/delete/{aspirasi}', [AspirasiController::class, 'delete'])->name('hapus-aspirasi');
+
+    // Laporan Aspirasi
+        Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+        Route::get('/laporan/cetak', [LaporanController::class, 'cetak'])->name('cetak-laporan');
 });
 
 // Routing untuk siswa
@@ -42,4 +63,8 @@ Route::middleware(['auth', 'role:siswa'])->prefix('siswa')->name('siswa.')->grou
     Route::get('/dashboard', [DashboardSiswa::class, 'index'])->name('dashboard');
     Route::get('/aspirasi', [DashboardSiswa::class, 'tambahAspirasi'])->name('tambah-aspirasi');
     Route::post('/aspirasi', [DashboardSiswa::class, 'simpanAspirasi'])->name('proses-tambah');
+    Route::get('/aspirasi/edit/{aspirasi}', [DashboardSiswa::class, 'editAspirasi'])->name('edit-tambah');
+    Route::put('/aspirasi', [DashboardSiswa::class, 'updateAspirasi'])->name('proses-edit');
+    Route::get('/aspirasi/delete/{aspirasi}', [DashboardSiswa::class, 'hapusAspirasi'])->name('edit-aspirasi');
+
 });

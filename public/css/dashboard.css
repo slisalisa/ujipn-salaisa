@@ -12,7 +12,7 @@ body {
 }
 
 /* LAYOUT */
-.container {
+.container-main {
     display: flex;
     min-height: 100vh;
 }
@@ -20,7 +20,7 @@ body {
 /* SIDEBAR */
 .sidebar {
     width: 260px;
-    background: linear-gradient(180deg, #0f172a, #1e293b);
+    background: linear-gradient(180deg, #7597e7, #1057c7);
     color: #fff;
     padding: 25px 20px;
 }
@@ -66,7 +66,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
-    background-color: #e4e9f7;
+    background-color: #6c8ace;
     padding: 15px;
 }
 
@@ -226,12 +226,16 @@ th {
     background: #14b8a6;
 }
 
+.ditolak {
+    background: #9f130e;
+}
+
 /* BUTTON */
 .btn {
     display: inline-block;
     margin: 20px 0;
     padding: 14px 30px;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
+    /* background: linear-gradient(135deg, #22c55e, #16a34a); */
     color: #fff;
     border-radius: 12px;
     text-decoration: none;

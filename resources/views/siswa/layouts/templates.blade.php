@@ -45,7 +45,7 @@
 
             @yield('content')
 
-           
+
 
         </main>
     </div>
@@ -67,7 +67,7 @@
             }
         });
     </script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.main.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
